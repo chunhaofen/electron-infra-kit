@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>限流示例</title>
+    <style>body { padding: 20px; font-family: sans-serif; }</style>
+</head>
+<body>
+    <h2>IPC 限流示例</h2>
+    <p>规则: 2秒内最多3次调用。</p>
+    
+    <button id="spam-btn">快速发送5次请求</button>
+
+    <div id="log" style="margin-top:20px; border:1px solid #ccc; height:300px; overflow-y:auto; padding:10px;"></div>
+
+    <script type="module" src="./index.js"></script>
+</body>
+</html>

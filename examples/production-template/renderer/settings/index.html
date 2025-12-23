@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+    <title>设置</title>
+    <link rel="stylesheet" href="../shared/styles.css" />
+    <style>
+      .settings-group {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .settings-group h2 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+      .setting-item {
+        margin-bottom: 20px;
+      }
+      .setting-item label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: #666;
+        font-weight: 500;
+      }
+      .setting-item select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+      .setting-item input[type="checkbox"] {
+        margin-right: 10px;
+        width: 18px;
+        height: 18px;
+      }
+      .checkbox-label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+      .save-button {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      .save-button:hover {
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>⚙️ 设置</h1>
+
+      <div class="settings-group">
+        <h2>外观</h2>
+        <div class="setting-item">
+          <label>主题</label>
+          <select id="theme">
+            <option value="light">浅色 (Light)</option>
+            <option value="dark">深色 (Dark)</option>
+            <option value="auto">跟随系统 (Auto)</option>
+          </select>
+        </div>
+        <div class="setting-item">
+          <label>语言</label>
+          <select id="language">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+            <option value="ja">日本語</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <h2>通知</h2>
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="notifications" />
+            启用通知
+          </label>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <h2>更新</h2>
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="autoUpdate" />
+            自动检查更新
+          </label>
+        </div>
+      </div>
+
+      <button class="save-button" onclick="saveSettings()">💾 保存设置</button>
+    </div>
+
+    <script src="../shared/common.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

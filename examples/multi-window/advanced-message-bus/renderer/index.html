@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>高级消息总线</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .section { margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; }
+        button { padding: 5px 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>高级消息总线功能</h1>
+
+    <div class="section">
+        <h3>1. 权限控制</h3>
+        <p>当前 'readonly-key': <span id="readonly-val">加载中...</span></p>
+        <button id="try-modify-btn">尝试修改 'readonly-key'</button>
+        <p id="perm-error" style="color: red;"></p>
+    </div>
+
+    <div class="section">
+        <h3>2. 事务</h3>
+        <p>公共数据: <span id="public-val">加载中...</span></p>
+        <button id="transaction-btn">开始事务 (设置 + 等待 + 提交)</button>
+        <p id="trans-status"></p>
+    </div>
+
+    <script type="module" src="./index.js"></script>
+</body>
+</html>

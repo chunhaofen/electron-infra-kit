@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+    <title>关于</title>
+    <link rel="stylesheet" href="../shared/styles.css" />
+    <style>
+      body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+      }
+      .logo {
+        font-size: 80px;
+        margin-bottom: 20px;
+      }
+      h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+      }
+      .version {
+        font-size: 16px;
+        opacity: 0.8;
+        margin-bottom: 40px;
+      }
+      .info-box {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+      .info-box h3 {
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+      .info-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .info-item:last-child {
+        border-bottom: none;
+      }
+      .info-label {
+        opacity: 0.8;
+      }
+      .info-value {
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo">⚡</div>
+    <h1>Electron Infra Kit</h1>
+    <div class="version">生产级应用示例</div>
+
+    <div class="info-box">
+      <h3>系统信息</h3>
+      <div id="systemInfo">加载中...</div>
+    </div>
+
+    <div class="info-box">
+      <h3>特性</h3>
+      <div class="info-item">
+        <span class="info-label">窗口管理 (Window Manager)</span>
+        <span class="info-value">✓</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">IPC 路由 (IPC Router)</span>
+        <span class="info-value">✓</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">消息总线 (Message Bus)</span>
+        <span class="info-value">✓</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">状态持久化 (State Persistence)</span>
+        <span class="info-value">✓</span>
+      </div>
+    </div>
+
+    <script src="../shared/common.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

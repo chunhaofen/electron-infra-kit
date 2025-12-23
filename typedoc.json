@@ -1,0 +1,25 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "src"
+  ],
+  "entryPointStrategy": "expand",
+  "out": "docs",
+  "name": "Electron Infra Kit API 文档",
+  "includeVersion": true,
+  "readme": "none",
+  "exclude": [
+    "src/index.ts",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ],
+  "excludeNotDocumented": false,
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "hideGenerator": true,
+  "lang": "zh",
+  "navigation": {
+    "includeCategories": false,
+    "includeGroups": false
+  }
+}

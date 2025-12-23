@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>调试模式</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      h1 {
+        margin-bottom: 30px;
+        font-size: 32px;
+      }
+      .section {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .section h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+      .instruction {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        line-height: 1.8;
+      }
+      .instruction code {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+      button:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+      .result {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 15px;
+        border-radius: 6px;
+        margin-top: 15px;
+        font-family: 'Courier New', monospace;
+        font-size: 13px;
+        white-space: pre-wrap;
+      }
+      .feature-list {
+        list-style: none;
+        padding: 0;
+      }
+      .feature-list li {
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        margin-bottom: 8px;
+        border-radius: 6px;
+      }
+      .feature-list li::before {
+        content: '✓ ';
+        color: #4ade80;
+        font-weight: bold;
+        margin-right: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🐛 调试模式演示</h1>
+
+      <div class="section">
+        <h2>📖 如何使用调试模式</h2>
+        <div class="instruction">
+          1. 打开开发者工具控制台 (F12 或 Ctrl+Shift+I)<br />
+          2. 输入全局变量: <code>__ELECTRON_TOOLKIT_DEBUG__</code><br />
+          3. 探索所有注册的实例 (WindowManager, IpcRouter 等)
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>🛠 测试功能</h2>
+        <div class="controls">
+          <button onclick="testIpc()">测试 IPC 调用</button>
+          <button onclick="getDebugInfo()">获取调试信息</button>
+          <button onclick="createWindow()">模拟窗口创建</button>
+        </div>
+        <div id="result" class="result">点击上方按钮测试...</div>
+      </div>
+
+      <div class="section">
+        <h2>✨ 已启用功能</h2>
+        <ul class="feature-list">
+          <li>Global Debug Helper (全局调试助手)</li>
+          <li>IPC Request Logging (IPC 请求日志)</li>
+          <li>State Monitoring (状态监控)</li>
+          <li>DevTools Integration (开发者工具集成)</li>
+        </ul>
+      </div>
+    </div>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

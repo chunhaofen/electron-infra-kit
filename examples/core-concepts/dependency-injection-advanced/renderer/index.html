@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>依赖注入高级示例</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      h1 {
+        margin-bottom: 30px;
+        font-size: 32px;
+      }
+      .section {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .section h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        opacity: 0.9;
+      }
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+      button:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+      .result {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 15px;
+        border-radius: 6px;
+        margin-top: 15px;
+        font-family: 'Courier New', monospace;
+        font-size: 13px;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      .user-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+      }
+      .user-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 8px;
+      }
+      .user-card h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
+      .user-card p {
+        font-size: 13px;
+        opacity: 0.8;
+        margin: 4px 0;
+      }
+      input {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 6px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+      select {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 6px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>依赖注入演示</h1>
+
+      <div class="section">
+        <h2>📂 App 注入 (Electron App)</h2>
+        <div>
+          <button onclick="getPath('userData')">获取 userData 路径</button>
+          <button onclick="getPath('temp')">获取 temp 路径</button>
+        </div>
+        <div id="pathResult" class="result">点击上方按钮获取路径...</div>
+      </div>
+
+      <div class="section">
+        <h2>👥 Database 注入 (模拟数据库)</h2>
+        <div>
+          <input type="text" id="newUserName" placeholder="姓名" />
+          <input type="email" id="newUserEmail" placeholder="邮箱" />
+          <select id="newUserRole">
+            <option value="user">普通用户</option>
+            <option value="admin">管理员</option>
+          </select>
+          <button onclick="createUser()">创建用户</button>
+        </div>
+        <div id="createResult" class="result" style="margin-bottom: 15px; display: none;"></div>
+        
+        <button onclick="loadUsers()">刷新列表</button>
+        <div id="userList" class="user-list">
+          <!-- User cards will be inserted here -->
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

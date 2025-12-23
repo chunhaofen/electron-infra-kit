@@ -1,0 +1,19 @@
+{
+  "types": [
+    { "type": "feat", "section": "✨ 新增特性 (New Features)" },
+    { "type": "fix", "section": "🐛 Bug 修复 (Bug Fixes)" },
+    { "type": "perf", "section": "⚡ 性能优化 (Performance)" },
+    { "type": "refactor", "section": "♻️ 代码重构 (Refactoring)" },
+    { "type": "docs", "section": "📝 文档更新 (Documentation)" },
+    { "type": "style", "section": "💄 代码样式 (Styles)", "hidden": false },
+    { "type": "chore", "section": "🔧 构建/工具 (Chores)", "hidden": true },
+    { "type": "test", "section": "✅ 测试 (Tests)", "hidden": true },
+    { "type": "build", "section": "📦 构建系统 (Build)", "hidden": true },
+    { "type": "ci", "section": "👷 CI/CD", "hidden": true }
+  ],
+  "skip": {
+    "changelog": false
+  },
+  "header": "# 更新日志 (Changelog)\n\n本项目的所有重大更改都将记录在此文件中。\n\n",
+  "releaseCommitMessageFormat": "chore(release): {{currentTag}}"
+}

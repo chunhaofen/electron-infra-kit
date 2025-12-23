@@ -1,0 +1,30 @@
+# 依赖
+node_modules/
+dist/
+# 日志
+*.log
+npm-debug.log*
+pnpm-debug.log*
+# 系统文件
+.DS_Store
+Thumbs.db
+# IDE
+.vscode/*
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+# 历史备份
+.history/
+# 临时文件
+*.tmp
+.cache/
+.eslintcache
+review_report.md
+# 测试覆盖率
+coverage/
+.nyc_output/
+# 构建产物
+*.tsbuildinfo
+docs/

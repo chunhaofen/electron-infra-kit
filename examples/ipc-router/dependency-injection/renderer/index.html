@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>依赖注入示例</title>
+    <style>body { padding: 20px; font-family: sans-serif; transition: background 0.3s; }</style>
+</head>
+<body>
+    <h2>依赖注入 (DI) 示例</h2>
+    
+    <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+        <h3>用户服务 (注入 DB & Logger)</h3>
+        <input type="number" id="user-id" placeholder="ID (1 or 2)" value="1">
+        <button id="get-user-btn">获取用户</button>
+        <pre id="user-res"></pre>
+        
+        <hr>
+        <input type="text" id="new-user-name" placeholder="新用户名">
+        <button id="create-user-btn">创建用户</button>
+        <div id="create-res"></div>
+    </div>
+
+    <div style="border:1px solid #ccc; padding:10px;">
+        <h3>设置服务 (注入 Config)</h3>
+        <p>当前主题: <span id="theme-status">...</span></p>
+        <button id="theme-btn">切换主题</button>
+    </div>
+
+    <script type="module" src="./index.js"></script>
+</body>
+</html>

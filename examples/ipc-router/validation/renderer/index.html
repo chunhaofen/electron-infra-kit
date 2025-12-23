@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Schema 验证示例</title>
+    <style>
+        body { padding: 20px; font-family: sans-serif; }
+        .form-group { margin-bottom: 10px; }
+        label { display: inline-block; width: 80px; }
+        .error { color: red; background: #ffe6e6; padding: 10px; }
+        .success { color: green; background: #e6ffe6; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Zod Schema 验证</h2>
+    <p>尝试提交无效数据（如年龄 < 18 或名字过短）来查看验证错误。</p>
+
+    <div class="form-group">
+        <label>用户名:</label>
+        <input type="text" id="username" placeholder="至少3个字符">
+    </div>
+    <div class="form-group">
+        <label>年龄:</label>
+        <input type="number" id="age" placeholder="必须 >= 18">
+    </div>
+    <div class="form-group">
+        <label>邮箱:</label>
+        <input type="email" id="email" placeholder="可选">
+    </div>
+
+    <button id="submit-btn">创建用户</button>
+
+    <pre id="result" style="margin-top: 20px;"></pre>
+
+    <script type="module" src="./index.js"></script>
+</body>
+</html>

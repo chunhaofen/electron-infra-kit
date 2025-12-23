@@ -1,0 +1,28 @@
+# 源代码
+src/
+examples/
+guides/
+scripts/
+# 配置文件
+tsconfig.json
+rollup.config.js
+vite.config.ts
+typedoc.json
+.eslintrc.json
+.prettierrc.json
+.prettierignore
+.versionrc.json
+# 文档（可选，看是否想发布）
+DEVELOPMENT.md
+QUICKSTART.md
+QUICKSTART.zh-CN.md
+# 开发文件
+.github/
+.vscode/
+.history/
+*.log
+.gitignore
+pnpm-lock.yaml
+# TypeScript 源文件（保留 .d.ts）
+*.ts
+!*.d.ts

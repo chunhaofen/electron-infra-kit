@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>性能优化示例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 6px;
+        }
+        
+        h2 {
+            color: #444;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        button:hover {
+            background: #218838;
+        }
+        
+        button.secondary {
+            background: #6c757d;
+        }
+        
+        button.secondary:hover {
+            background: #5a6268;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+        
+        .stat-value {
+            color: #333;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .stat-unit {
+            color: #999;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+        
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .metrics-table {
+            width: 100%;
+            margin-top: 15px;
+            border-collapse: collapse;
+        }
+        
+        .metrics-table th,
+        .metrics-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .metrics-table th {
+            background: #f0f0f0;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .metrics-table tr:hover {
+            background: #f9f9f9;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .input-group input {
+            width: 200px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 性能优化示例</h1>
+        <p class="subtitle">演示性能监控和优化技术</p>
+        
+        <!-- 性能测试 -->
+        <div class="section">
+            <h2>1. 性能测试</h2>
+            <button onclick="runHeavyOperation()">运行耗时操作</button>
+            <div class="input-group">
+                <label>批量操作数量：</label>
+                <input type="number" id="batchCount" value="1000" min="100" max="10000">
+            </div>
+            <button onclick="runBatchOperation()">运行批量操作</button>
+            <div id="testResult" class="result"></div>
+        </div>
+        
+        <!-- 性能统计 -->
+        <div class="section">
+            <h2>2. 性能统计</h2>
+            <button onclick="loadStats()">刷新统计</button>
+            <button class="secondary" onclick="clearMetrics()">清除指标</button>
+            <div id="statsContainer"></div>
+        </div>
+        
+        <!-- 窗口状态 -->
+        <div class="section">
+            <h2>3. 窗口状态持久化</h2>
+            <p style="color: #666; margin-bottom: 15px;">
+                移动或调整窗口大小，关闭后重新打开，窗口会恢复到上次的位置和大小。
+            </p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">窗口宽度</div>
+                    <div class="stat-value" id="windowWidth">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">窗口高度</div>
+                    <div class="stat-value" id="windowHeight">-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="./index.js"></script>
+</body>
+</html>

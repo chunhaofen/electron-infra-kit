@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+    <title>生产级应用示例</title>
+    <link rel="stylesheet" href="../shared/styles.css" />
+    <style>
+      .hero {
+        text-align: center;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 12px;
+        margin-bottom: 30px;
+      }
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 15px;
+      }
+      .hero p {
+        font-size: 18px;
+        opacity: 0.9;
+      }
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+      .feature-card {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .feature-card .icon {
+        font-size: 36px;
+        margin-bottom: 15px;
+      }
+      .feature-card h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+      .feature-card p {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.6;
+      }
+      .actions {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+      }
+      .status-bar {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="hero">
+        <h1>🚀 生产级应用示例</h1>
+        <p>展示所有工具包功能的完整示例</p>
+      </div>
+
+      <div class="features">
+        <div class="feature-card">
+          <div class="icon">🪟</div>
+          <h3>窗口管理</h3>
+          <p>持久化窗口状态、防止重复和生命周期钩子</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🔌</div>
+          <h3>IPC 路由</h3>
+          <p>带依赖注入的类型安全通信</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🌉</div>
+          <h3>状态同步</h3>
+          <p>跨窗口实时状态同步</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🔒</div>
+          <h3>安全性</h3>
+          <p>上下文隔离、沙盒模式和 CSP 头</p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" onclick="openSettings()">⚙️ 设置</button>
+        <button class="btn btn-secondary" onclick="openAbout()">ℹ️ 关于</button>
+        <button class="btn btn-secondary" onclick="getSystemInfo()">📊 系统信息</button>
+      </div>
+
+      <div class="status-bar">
+        <span id="userInfo">加载中...</span>
+        <span id="configInfo">加载中...</span>
+      </div>
+    </div>
+
+    <script src="../shared/common.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
