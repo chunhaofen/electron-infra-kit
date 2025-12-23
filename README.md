@@ -1,9 +1,14 @@
 # Electron Infra Kit
 
 [![npm version](https://img.shields.io/npm/v/electron-infra-kit.svg)](https://www.npmjs.com/package/electron-infra-kit)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm downloads](https://img.shields.io/npm/dm/electron-infra-kit.svg)](https://www.npmjs.com/package/electron-infra-kit)
+[![CI](https://github.com/chunhaofen/electron-infra-kit.git/actions/workflows/ci.yml/badge.svg)](https://github.com/chunhaofen/electron-infra-kit.git/actions/workflows/ci.yml)
+[![License](https://img.shields.io/npm/l/electron-infra-kit.svg)](https://github.com/chunhaofen/electron-infra-kit.git/blob/main/LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 
-A comprehensive infrastructure kit for Electron applications, featuring a robust window manager with state persistence, inter-window communication, and full TypeScript support.
+English | [简体中文](./README.zh-CN.md)
+
+A comprehensive infrastructure kit for Electron applications, providing window management, IPC routing, and state synchronization capabilities.
 
 ## ✨ Features
 
@@ -62,6 +67,7 @@ app.whenReady().then(async () => {
 
 - **[Quick Start Guide](./QUICKSTART.md)** - Get up and running in 5 minutes
 - **[Complete Example](./guides/COOKBOOK.md)** - Full working example with all features
+- **[Migration Guide](./IMPROVEMENTS.md)** - Upgrade from older versions
 
 ### Core Concepts
 
