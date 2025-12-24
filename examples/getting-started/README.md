@@ -32,6 +32,11 @@ const { windowManager, ipcRouter } = createElectronToolkit({
       contextIsolation: true,
     },
   },
+  loggerOptions: {
+    appName: 'main',
+    ipcEnabled: true,
+    ipcLevel: 'info',
+  },
 })
 
 // 创建窗口

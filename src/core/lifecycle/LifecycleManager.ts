@@ -1,4 +1,4 @@
-import { Logger, ILogger } from '@/infrastructure/logger';
+import { ILogger, getSharedLogger } from '@/infrastructure/logger';
 import WindowManager from '@/core/window/WindowManager';
 import IpcRouter from '@/core/ipc/IpcRouter';
 import { MessageBus } from '@/core/message-bus/MessageBus';
@@ -57,7 +57,8 @@ export class LifecycleManager {
    */
   constructor(config: LifecycleConfig = {}) {
     this.config = config;
-    this.logger = config.logger || new Logger({ appName: 'LifecycleManager' });
+    const logger = config.logger || getSharedLogger(config.loggerOptions);
+    this.logger = logger;
 
     if (config.autoStart) {
       this.startup().catch((err) => {
@@ -81,12 +82,12 @@ export class LifecycleManager {
 
       // 1. Initialize IpcRouter (Foundation for communication)
       // 1. 初始化 IpcRouter (通信基础)
-      this.ipcRouter = this.config.ipcRouter || new IpcRouter({ logger: this.config.logger });
+      this.ipcRouter = this.config.ipcRouter || new IpcRouter({ logger: this.logger });
       this.logger.info('IpcRouter initialized');
 
       // 2. Initialize MessageBus (Cross-window communication)
       // 2. 初始化 MessageBus (跨窗口通信)
-      this.messageBus = this.config.messageBus || new MessageBus({ logger: this.config.logger });
+      this.messageBus = this.config.messageBus || new MessageBus({ logger: this.logger });
 
       // 3. Initialize WindowManager (Core window management)
       // 3. 初始化 WindowManager (核心窗口管理)
@@ -94,6 +95,7 @@ export class LifecycleManager {
         this.config.windowManager ||
         new WindowManager({
           ...this.config,
+          logger: this.logger,
           ipcRouter: this.ipcRouter,
           messageBus: this.messageBus,
         });

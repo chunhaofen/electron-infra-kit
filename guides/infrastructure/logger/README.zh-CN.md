@@ -69,6 +69,32 @@ rendererLogger.info('Renderer loaded / 渲染进程已加载');
 ipcLogger.info('IPC channel established / IPC 通道已建立');
 ```
 
+### Shared Logger & IPC Transport / 共享单例与 IPC 传输
+
+```typescript
+import { getSharedLogger } from 'electron-infra-kit';
+
+const logger = getSharedLogger({
+  appName: 'main',
+  ipcEnabled: true,
+  ipcLevel: 'info',
+});
+```
+
+### Toolkit Integration / 与工具包集成
+
+```typescript
+import { createElectronToolkit } from 'electron-infra-kit';
+
+const { windowManager, ipcRouter, messageBus } = createElectronToolkit({
+  loggerOptions: {
+    appName: 'main',
+    ipcEnabled: true,
+    ipcLevel: 'info',
+  },
+});
+```
+
 ## Configuration / 配置说明
 
 ### Default Configuration / 默认配置
@@ -134,6 +160,10 @@ Logs use a standardized format containing the following information:
 
 - **appName**: Optional. Name of the log instance, used to identify logs from different modules. Defaults to `'main'`.
 - **appName**：可选，日志实例名称，用于标识不同模块的日志，默认为 'main'。
+ - **fileLevel**：可选，文件传输的日志级别（`'debug' | 'info' | 'warn' | 'error' | 'verbose' | 'silly' | false`）
+ - **consoleLevel**：可选，控制台传输的日志级别（同上）
+ - **ipcEnabled**：可选，是否启用 IPC 传输，将日志转发到渲染进程（默认关闭）
+ - **ipcLevel**：可选，IPC 传输的日志级别（同上）
 
 #### Methods / 方法
 

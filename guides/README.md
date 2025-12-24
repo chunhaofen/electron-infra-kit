@@ -48,6 +48,7 @@ In addition to individual modules, the kit provides several **core helpers** exp
   - Inject a default `ipcSetup` implementation when not provided (using `IpcSetup.defaultSetup`)
   - Automatically bind `window-will-be-destroyed` events to clean up `MessageBus` ports
   - Enable **debug mode** automatically when `config.isDevelopment` is true or `NODE_ENV=development`
+  - Accept `loggerOptions` to configure the shared logger (e.g. `ipcEnabled`, `ipcLevel`)
 
 - **`DebugHelper`**  
   Debug utility designed for development:

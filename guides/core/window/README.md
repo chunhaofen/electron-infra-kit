@@ -353,6 +353,29 @@ app.on('before-quit', () => {
 });
 ```
 
+### 11. Logger & IPC Transport
+
+```typescript
+import { createElectronToolkit } from 'electron-infra-kit';
+
+const { windowManager } = createElectronToolkit({
+  loggerOptions: {
+    appName: 'main',
+    ipcEnabled: true,
+    ipcLevel: 'info',
+  },
+});
+```
+
+```typescript
+import { WindowManager, getSharedLogger, IpcRouter, MessageBus } from 'electron-infra-kit';
+
+const logger = getSharedLogger({ appName: 'Main', ipcEnabled: true, ipcLevel: 'info' });
+const ipcRouter = new IpcRouter({ logger });
+const messageBus = new MessageBus({ logger });
+const windowManager = new WindowManager({ ipcRouter, messageBus, logger });
+```
+
 ## API Reference
 
 ### `WindowManager`

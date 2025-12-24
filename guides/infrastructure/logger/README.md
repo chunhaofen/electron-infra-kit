@@ -41,6 +41,32 @@ rendererLogger.info('Renderer loaded');
 ipcLogger.info('IPC channel established');
 ```
 
+### Shared Logger & IPC Transport
+
+```typescript
+import { getSharedLogger } from 'electron-infra-kit';
+
+const logger = getSharedLogger({
+  appName: 'main',
+  ipcEnabled: true,
+  ipcLevel: 'info',
+});
+```
+
+### Toolkit Integration
+
+```typescript
+import { createElectronToolkit } from 'electron-infra-kit';
+
+const { windowManager, ipcRouter, messageBus } = createElectronToolkit({
+  loggerOptions: {
+    appName: 'main',
+    ipcEnabled: true,
+    ipcLevel: 'info',
+  },
+});
+```
+
 ## Configuration
 
 ### Default Configuration
@@ -95,6 +121,10 @@ electronLog.transports.custom = {
   - **appName**: Optional. Name of the log instance. Defaults to `'main'`.
   - **maxSize**: Optional. Max file size in bytes.
   - **fileName**: Optional. Custom log filename.
+  - **fileLevel**: Optional. File transport level (`'debug' | 'info' | 'warn' | 'error' | 'verbose' | 'silly' | false`).
+  - **consoleLevel**: Optional. Console transport level (same options as `fileLevel`).
+  - **ipcEnabled**: Optional. Enable IPC transport to forward logs to renderer (default disabled).
+  - **ipcLevel**: Optional. IPC transport level (same options as `fileLevel`).
 
 #### Methods
 

@@ -30,10 +30,10 @@ If you have an existing project and don't want to use `createElectronToolkit`, h
 ```typescript
 // src/main/index.ts
 import { app } from 'electron';
-import { WindowManager, IpcRouter, MessageBus, Logger } from 'electron-infra-kit';
+import { WindowManager, IpcRouter, MessageBus, getSharedLogger } from 'electron-infra-kit';
 
-// 1. Create Logger
-const logger = new Logger('Main');
+// 1. Create Logger (shared singleton with IPC transport)
+const logger = getSharedLogger({ appName: 'Main', ipcEnabled: true, ipcLevel: 'info' });
 
 // 2. Initialize Core Services
 const ipcRouter = new IpcRouter({ logger });

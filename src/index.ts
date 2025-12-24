@@ -3,6 +3,7 @@ import IpcRouter from './core/ipc/IpcRouter';
 import { MessageBus } from './core/message-bus/MessageBus';
 import { WindowManagerConfig } from './core/window/window-manager.type';
 import { DebugHelper } from './infrastructure/debug';
+import { getSharedLogger } from './infrastructure/logger';
 
 /**
  * Quick Start Helper
@@ -11,17 +12,19 @@ import { DebugHelper } from './infrastructure/debug';
  * @returns Object containing initialized instances
  */
 export function createElectronToolkit(config: WindowManagerConfig = {}) {
+  const logger = config.logger || getSharedLogger(config.loggerOptions);
   // Create IpcRouter
-  const ipcRouter = new IpcRouter({ logger: config.logger });
+  const ipcRouter = new IpcRouter({ logger });
 
   // Create WindowManager with ipcRouter integrated
   const windowManager = new WindowManager({
     ...config,
+    logger,
     ipcRouter,
   });
 
   // Create MessageBus
-  const messageBus = new MessageBus({ logger: config.logger });
+  const messageBus = new MessageBus({ logger });
 
   // Automatically integrate MessageBus with WindowManager
   // 自动集成 MessageBus 和 WindowManager
@@ -49,7 +52,12 @@ export * from './core/message-bus';
 export * from './core/lifecycle/LifecycleManager';
 // IpcTransport is internal, do not export
 // export { default as IpcTransport } from './ipc-transport'
-export { Logger, type LoggerOptions } from './infrastructure/logger';
+export {
+  Logger,
+  type LoggerOptions,
+  getSharedLogger,
+  setSharedLogger,
+} from './infrastructure/logger';
 export * from './preload';
 // Internal utils should not be exported
 // export * from './internal/utils';

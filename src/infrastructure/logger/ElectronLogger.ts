@@ -16,6 +16,10 @@ export interface LoggerOptions {
   fileLevel?: 'debug' | 'info' | 'warn' | 'error' | 'verbose' | 'silly' | false;
   /** Console log level / 控制台日志级别 */
   consoleLevel?: 'debug' | 'info' | 'warn' | 'error' | 'verbose' | 'silly' | false;
+  /** Enable IPC transport / 启用 IPC 传输 */
+  ipcEnabled?: boolean;
+  /** IPC transport level / IPC 传输级别 */
+  ipcLevel?: 'debug' | 'info' | 'warn' | 'error' | 'verbose' | 'silly' | false;
 }
 
 /**
@@ -40,11 +44,15 @@ export class ElectronLogger implements ILogger {
       fileName,
       fileLevel,
       consoleLevel,
+      ipcEnabled,
+      ipcLevel,
     } = options;
 
     // Create a logger instance for either 'main' or 'renderer'
     this.logger = LoggerService.create({ logId: appName });
     this.logger.scope(appName);
+    const defaultIpcLevel = this.isDev ? 'silly' : 'info';
+    this.logger.transports.ipc.level = ipcLevel ?? (ipcEnabled ? defaultIpcLevel : false);
 
     // Set log levels with smart defaults based on environment
     // 根据环境设置日志级别，使用智能默认值

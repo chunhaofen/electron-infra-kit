@@ -295,6 +295,20 @@ contextBridge.exposeInMainWorld('api', {
 </script>
 ```
 
+### 13. 日志与 IPC 传输配置
+
+```javascript
+import { createElectronToolkit } from 'electron-infra-kit'
+
+const { windowManager, ipcRouter, messageBus } = createElectronToolkit({
+  loggerOptions: {
+    appName: 'main',
+    ipcEnabled: true,
+    ipcLevel: 'info',
+  },
+})
+```
+
 ## 常见模式
 
 ### 单例窗口

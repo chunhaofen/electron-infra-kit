@@ -100,11 +100,11 @@ import {
   WindowManager,
   IpcRouter,
   MessageBus,
-  Logger,
+  getSharedLogger,
 } from 'electron-infra-kit';
 
 // Create instances manually
-const logger = new Logger({ appName: 'MyApp' });
+const logger = getSharedLogger({ appName: 'MyApp', ipcEnabled: true, ipcLevel: 'info' });
 const ipcRouter = new IpcRouter({ logger });
 const messageBus = new MessageBus({ logger });
 const windowManager = new WindowManager({

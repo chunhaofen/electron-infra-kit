@@ -80,12 +80,12 @@ export default class WindowCreator<T = WindowCreationOptions> {
 
     // Create new window instance
     // 创建新窗口实例
-    const options = this.winId
-      ? {
-          windowId: this.winId,
-          ...(this.extraOptions?.(this.data.data) || {}),
-        }
-      : this.data.data;
+    const base = this.data.data || ({} as any);
+    const options = {
+      ...(base as any),
+      ...(this.extraOptions?.(base) || {}),
+      ...(this.winId ? { windowId: this.winId } : {}),
+    };
 
     this.winId = await this.creator(options);
     isNew = true;
@@ -175,12 +175,12 @@ export default class WindowCreator<T = WindowCreationOptions> {
 
       // Load content if it's a new window
       if (isNew) {
-        const options = this.winId
-          ? {
-              windowId: this.winId,
-              ...(this.extraOptions?.(this.data.data) || {}),
-            }
-          : this.data.data;
+        const base = this.data.data || ({} as any);
+        const options = {
+          ...(base as any),
+          ...(this.extraOptions?.(base) || {}),
+          windowId: this.winId,
+        };
         await this.loadContent(this.winId, options);
       }
 

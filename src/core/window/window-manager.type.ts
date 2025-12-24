@@ -6,6 +6,7 @@ import type WindowManager from './WindowManager';
 // These imports are erased during compilation and don't create runtime dependencies
 // 这些导入在编译时被擦除，不会创建运行时依赖
 import type { ILogger } from '@/infrastructure/logger';
+import type { LoggerOptions } from '@/infrastructure/logger';
 import type StateKeeper from '@/internal/utils/StateKeeper';
 import type { IIpcTransport } from '@/core/ipc/transport/ipc.type';
 import type IpcRouter from '@/core/ipc/IpcRouter';
@@ -274,6 +275,11 @@ export interface WindowManagerConfig {
    * 日志实例
    */
   logger?: ILogger;
+  /**
+   * Logger configuration options
+   * 日志配置选项
+   */
+  loggerOptions?: LoggerOptions;
   /**
    * IpcRouter instance for dependency injection
    * 用于依赖注入的 IpcRouter 实例
