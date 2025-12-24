@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/electron-infra-kit.svg)](https://www.npmjs.com/package/electron-infra-kit)
 [![npm downloads](https://img.shields.io/npm/dm/electron-infra-kit.svg)](https://www.npmjs.com/package/electron-infra-kit)
-[![CI](https://github.com/chunhaofen/electron-infra-kit.git/actions/workflows/ci.yml/badge.svg)](https://github.com/chunhaofen/electron-infra-kit.git/actions/workflows/ci.yml)
+[![CI](https://github.com/chunhaofen/electron-infra-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/chunhaofen/electron-infra-kit/actions/workflows/ci.yml)
 [![License](https://img.shields.io/npm/l/electron-infra-kit.svg)](https://github.com/chunhaofen/electron-infra-kit.git/blob/main/LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 
@@ -89,6 +89,54 @@ app.whenReady().then(async () => {
 - **[Type Definitions](./src/types.ts)** - TypeScript types
 
 ## 💡 Key Concepts
+
+### Architecture Design
+
+```mermaid
+%%{init: {'theme':'base','flowchart':{'curve':'basis','nodeSpacing':70,'rankSpacing':120,'diagramPadding':20,'htmlLabels':true}, 'themeVariables': { 'primaryColor':'#667eea','primaryTextColor':'#fff','primaryBorderColor':'#764ba2','lineColor':'#a78bfa','secondaryColor':'#4facfe','tertiaryColor':'#43e97b'}}}%%
+graph LR
+    classDef userNode fill:#667eea,stroke:#764ba2,stroke-width:3px,color:#fff,rx:12,ry:12
+    classDef entryNode fill:#f093fb,stroke:#f5576c,stroke-width:3px,color:#fff,rx:12,ry:12
+    classDef coreNode fill:#4facfe,stroke:#00c2fe,stroke-width:2px,color:#fff,rx:10,ry:10
+    classDef internalNode fill:#43e97b,stroke:#38f9d7,stroke-width:2px,color:#fff,rx:10,ry:10
+    classDef electronNode fill:#fa709a,stroke:#fee140,stroke-width:2px,color:#fff,rx:10,ry:10
+    classDef groupStyle fill:#f8fafc,stroke:#cbd5e1,stroke-width:2px,rx:10,ry:10
+
+    Dev["👨‍💻 Developer"]:::userNode
+    Entry["🛠️ createElectronToolkit"]:::entryNode
+
+    subgraph Core["🎯 Core Layer"]
+        WM["🪟 WindowManager"]:::coreNode
+        MB["📨 MessageBus"]:::coreNode
+        IR["🔌 IpcRouter"]:::coreNode
+    end
+    
+    subgraph Internal["⚙️ Support Layer"]
+        WS["💾 WindowStore"]:::internalNode
+        PE["🧩 PluginExecutor"]:::internalNode
+    end
+    
+    subgraph Electron["🖥️ Runtime Layer"]
+        EWin["Electron Windows"]:::electronNode
+        EIPC["Electron IPC"]:::electronNode
+    end
+
+    Dev --> Entry
+    Entry --> WM
+    Entry --> MB
+    Entry --> IR
+    
+    WM -.-> WS
+    WM -.-> PE
+    WM -.-> IR
+    MB -.-> WM
+    
+    WM --> EWin
+    MB --> EWin
+    IR --> EIPC
+    
+    class Core,Internal,Electron groupStyle
+```
 
 ### Window Manager
 
