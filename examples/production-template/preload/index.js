@@ -16,6 +16,12 @@ contextBridge.exposeInMainWorld('messageBus', {
     return ipcRenderer.invoke('message-bus-invoke', {
       name: 'get',
       data: { key },
+    }).then(res => {
+      if (res && typeof res === 'object' && 'code' in res) {
+        if (res.code === 200) return res.data
+        throw new Error(res.message || `IPC Error: ${res.code}`)
+      }
+      return res
     })
   },
 
@@ -23,6 +29,12 @@ contextBridge.exposeInMainWorld('messageBus', {
     return ipcRenderer.invoke('message-bus-invoke', {
       name: 'set',
       data: { key, value, windowId },
+    }).then(res => {
+      if (res && typeof res === 'object' && 'code' in res) {
+        if (res.code === 200) return res.data
+        throw new Error(res.message || `IPC Error: ${res.code}`)
+      }
+      return res
     })
   },
 
@@ -30,6 +42,12 @@ contextBridge.exposeInMainWorld('messageBus', {
     return ipcRenderer.invoke('message-bus-invoke', {
       name: 'subscribe',
       data: { windowId, keys },
+    }).then(res => {
+      if (res && typeof res === 'object' && 'code' in res) {
+        if (res.code === 200) return res.data
+        throw new Error(res.message || `IPC Error: ${res.code}`)
+      }
+      return res
     })
   },
 

@@ -9,7 +9,7 @@
  */
 export enum IpcErrorCode {
   /** Success */
-  SUCCESS = 0,
+  SUCCESS = 200,
 
   /** Bad Request - Invalid payload or parameters */
   BAD_REQUEST = 400,
@@ -36,7 +36,7 @@ export enum IpcErrorCode {
  */
 export enum MessageBusErrorCode {
   /** Success */
-  SUCCESS = 0,
+  SUCCESS = 200,
 
   /** Permission Denied - Field permission check failed */
   PERMISSION_DENIED = 403,
@@ -57,7 +57,7 @@ export enum MessageBusErrorCode {
  */
 export enum WindowManagerErrorCode {
   /** Success */
-  SUCCESS = 0,
+  SUCCESS = 200,
 
   /** Window Not Found */
   WINDOW_NOT_FOUND = 404,

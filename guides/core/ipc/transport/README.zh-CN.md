@@ -54,7 +54,7 @@ ipcTransport.handle("my-channel", async (event, data) => {
   // Return raw data, it will be wrapped automatically
   // 返回原始数据，它会被自动封装
   return { success: true }; 
-  // Result in Renderer: { code: 0, message: "success", data: { success: true } }
+  // Result in Renderer: { code: 200, message: "success", data: { success: true } }
 });
 
 // 3. Register send/on listener (Sync/Async)

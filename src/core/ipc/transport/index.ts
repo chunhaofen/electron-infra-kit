@@ -93,7 +93,7 @@ export default class IpcTransport implements IIpcTransport {
         // Wrap result in standard response
         // 将结果包装在标准响应中
         return {
-          code: 0,
+          code: 200,
           message: 'success',
           data: result,
         };

@@ -2,11 +2,16 @@ import { contextBridge, ipcRenderer } from 'electron'
 
 contextBridge.exposeInMainWorld('api', {
     // Sender: Send message to another window via main
-    sendMessage: (text) => {
-        return ipcRenderer.invoke('renderer-to-main', {
+    sendMessage: async (text) => {
+        const res = await ipcRenderer.invoke('renderer-to-main', {
             name: 'send-to-receiver',
             payload: { text },
         })
+        if (res && typeof res === 'object' && 'code' in res) {
+            if (res.code === 200) return res.data
+            throw new Error(res.message || `IPC Error: ${res.code}`)
+        }
+        return res
     },
     // Receiver: Listen for custom events
     onMessage: (func) => {

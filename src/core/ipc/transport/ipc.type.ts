@@ -13,7 +13,7 @@ export type IPCHandleHandler = (
  * 标准 IPC 响应
  */
 export interface IpcResponse<T = unknown> {
-  /** Response code (0 = success, non-zero = error) */
+  /** Response code (200 = success, non-200 = error) */
   code: number;
   /** Response message */
   message: string;

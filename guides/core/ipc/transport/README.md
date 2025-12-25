@@ -32,7 +32,7 @@ const ipcTransport = new IpcTransport();
 ipcTransport.handle('my-channel', async (event, data) => {
   console.log('Received Request:', data);
   return { success: true };
-  // Result in Renderer: { code: 0, message: "success", data: { success: true } }
+  // Result in Renderer: { code: 200, message: "success", data: { success: true } }
 });
 
 // 3. Register send/on listener (Sync/Async)

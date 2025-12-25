@@ -72,14 +72,14 @@ declare global {
 async function fetchData() {
   try {
     // The bridge automatically unwraps the response.
-    // If backend returns { code: 0, data: User }, result will be User.
+    // If backend returns { code: 200, data: User }, result will be User.
     // 桥接器会自动解包响应。
-    // 如果后端返回 { code: 0, data: User }，result 将会是 User。
+    // 如果后端返回 { code: 200, data: User }，result 将会是 User。
     const result = await window.ipcApi.invoke("get-user-data", { id: 1 });
     console.log(result);
   } catch (error) {
-    // If backend returns code != 0, an error is thrown with the message.
-    // 如果后端返回 code != 0，会抛出带有错误消息的 Error。
+    // If backend returns code != 200, an error is thrown with the message.
+    // 如果后端返回 code != 200，会抛出带有错误消息的 Error。
     console.error("IPC Error:", error.message);
   }
 }

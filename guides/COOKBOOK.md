@@ -329,7 +329,7 @@ class CustomIpcTransport implements IIpcTransport {
       console.log(`[IPC Audit] Call to ${channel}`, args);
       try {
         const result = await listener(event, ...args);
-        return { code: 0, data: result };
+        return { code: 200, data: result };
       } catch (err) {
         console.error(`[IPC Audit] Error in ${channel}`, err);
         return { code: 500, message: err.message };
@@ -456,7 +456,7 @@ full details):
 - **Error Handling**
   - IPC handlers use a unified error model and `{ code, message, data }`
     response shape (especially on legacy sync channels).
-  - The preload bridge unwraps successful responses and throws on non-zero
+  - The preload bridge unwraps successful responses and throws on non-200
     `code`, so renderer code should always use `try/catch`.
   - `WindowManager` logs render-process failures and attempts reloads for
     non-fatal crashes; unresponsive windows are also logged.

@@ -57,11 +57,11 @@ declare global {
 async function fetchData() {
   try {
     // The bridge automatically unwraps the response.
-    // If backend returns { code: 0, data: User }, result will be User.
+    // If backend returns { code: 200, data: User }, result will be User.
     const result = await window.ipcApi.invoke("get-user-data", { id: 1 });
     console.log(result);
   } catch (error) {
-    // If backend returns code != 0, an error is thrown with the message.
+    // If backend returns code != 200, an error is thrown with the message.
     console.error("IPC Error:", error.message);
   }
 }

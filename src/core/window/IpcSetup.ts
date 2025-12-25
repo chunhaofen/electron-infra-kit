@@ -84,7 +84,7 @@ export class IpcSetup {
         const senderId = event.sender?.id;
         const result = await ipcRouter.handle(data as IpcRequest, senderId);
         return {
-          code: 0,
+          code: 200,
           message: 'success',
           data: result,
         };
@@ -111,7 +111,7 @@ export class IpcSetup {
           // Wrap result in standard response
           // 将结果包装在标准响应中
           event.returnValue = {
-            code: 0,
+            code: 200,
             message: 'success',
             data: result,
           };

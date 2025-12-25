@@ -48,7 +48,7 @@ export class IpcRendererBridge {
     // Automatic unwrapping of standard response format
     // 自动解包标准响应格式
     if (response && typeof response === 'object' && 'code' in response) {
-      if (response.code === 0) {
+      if (response.code === 200) {
         return response.data as T;
       }
       throw new Error(response.message || `IPC Error: ${response.code}`);
@@ -72,7 +72,7 @@ export class IpcRendererBridge {
     // Automatic unwrapping of standard response format
     // 自动解包标准响应格式
     if (response && typeof response === 'object' && 'code' in response) {
-      if (response.code === 0) {
+      if (response.code === 200) {
         return response.data as T;
       }
       throw new Error(response.message || `IPC Error: ${response.code}`);
