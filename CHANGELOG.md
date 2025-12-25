@@ -3,6 +3,13 @@
 本项目的所有重大更改都将记录在此文件中。
 
 
+### [0.1.2](https://github.com/chunhaofen/electron-infra-kit/compare/v0.1.1...v0.1.2) (2025-12-25)
+
+
+### ♻️ 代码重构 (Refactoring)
+
+* **ipc:** 将成功响应码从0改为200以符合HTTP标准
+
 ### [0.1.1](https://github.com/chunhaofen/electron-infra-kit/compare/v0.1.0...v0.1.1) (2025-12-25)
 
 
