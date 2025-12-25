@@ -15,5 +15,8 @@
     "changelog": false
   },
   "header": "# 更新日志 (Changelog)\n\n本项目的所有重大更改都将记录在此文件中。\n\n",
+  "scripts": {
+    "postchangelog": "node scripts/clean-changelog.js"
+  },
   "releaseCommitMessageFormat": "chore(release): {{currentTag}}"
 }

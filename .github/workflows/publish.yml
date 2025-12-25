@@ -55,12 +55,15 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm publish --access public --no-git-checks --provenance
 
+      - name: Generate Release Body
+        run: node scripts/extract-release-notes.js
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         if: success()
         with:
           files: electron-infra-kit-dist.zip
-          generate_release_notes: true
+          body_path: RELEASE_BODY.md
           make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

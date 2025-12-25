@@ -1,0 +1,19 @@
+# 默认行为：在检出时转换为 CRLF，在提交时转换为 LF
+* text=auto
+
+# 明确指定文件类型
+*.js text eol=lf
+*.ts text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# 二进制文件不转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary

@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/electron-infra-kit.svg)](https://www.npmjs.com/package/electron-infra-kit)
 [![npm downloads](https://img.shields.io/npm/dm/electron-infra-kit.svg)](https://www.npmjs.com/package/electron-infra-kit)
 [![CI](https://github.com/chunhaofen/electron-infra-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/chunhaofen/electron-infra-kit/actions/workflows/ci.yml)
-[![License](https://img.shields.io/npm/l/electron-infra-kit.svg)](https://github.com/chunhaofen/electron-infra-kit.git/blob/main/LICENSE)
+[![License](https://img.shields.io/npm/l/electron-infra-kit.svg)](https://github.com/chunhaofen/electron-infra-kit/blob/master/LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 
 English | [简体中文](./README.zh-CN.md)
@@ -110,12 +110,12 @@ graph LR
         MB["📨 MessageBus"]:::coreNode
         IR["🔌 IpcRouter"]:::coreNode
     end
-    
+
     subgraph Internal["⚙️ Support Layer"]
         WS["💾 WindowStore"]:::internalNode
         PE["🧩 PluginExecutor"]:::internalNode
     end
-    
+
     subgraph Electron["🖥️ Runtime Layer"]
         EWin["Electron Windows"]:::electronNode
         EIPC["Electron IPC"]:::electronNode
@@ -125,16 +125,16 @@ graph LR
     Entry --> WM
     Entry --> MB
     Entry --> IR
-    
+
     WM -.-> WS
     WM -.-> PE
     WM -.-> IR
     MB -.-> WM
-    
+
     WM --> EWin
     MB --> EWin
     IR --> EIPC
-    
+
     class Core,Internal,Electron groupStyle
 ```
 
