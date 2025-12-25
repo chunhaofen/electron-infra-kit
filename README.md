@@ -346,6 +346,7 @@ We welcome contributions! See [DEVELOPMENT.md](./DEVELOPMENT.md) for:
 - **[npm Package](https://www.npmjs.com/package/electron-infra-kit)**
 - **[Issue Tracker](https://github.com/chunhaofen/electron-infra-kit/issues)**
 - **[Changelog](./CHANGELOG.md)**
+- **[Official Example](https://github.com/chunhaofen/electron-infra-showcase)**
 
 ## ⭐ Star History
 

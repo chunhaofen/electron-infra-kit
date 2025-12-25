@@ -1,4 +1,4 @@
-﻿# Electron Infra Kit
+# Electron Infra Kit
 
 [![npm version](https://img.shields.io/npm/v/electron-infra-kit.svg)](https://www.npmjs.com/package/electron-infra-kit)
 [![npm downloads](https://img.shields.io/npm/dm/electron-infra-kit.svg)](https://www.npmjs.com/package/electron-infra-kit)
@@ -346,6 +346,7 @@ electron-infra-kit/
 - **[npm 包](https://www.npmjs.com/package/electron-infra-kit)**
 - **[问题追踪](https://github.com/chunhaofen/electron-infra-kit/issues)**
 - **[更新日志](./CHANGELOG.md)**
+- **[官方示例](https://github.com/chunhaofen/electron-infra-showcase)**
 
 ## ⭐ Star 历史
 
