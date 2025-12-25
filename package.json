@@ -1,6 +1,6 @@
 {
   "name": "electron-infra-kit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A comprehensive infrastructure kit for Electron applications, featuring a robust window manager with state persistence, inter-window communication, and full TypeScript support.",
   "sideEffects": false,
   "main": "dist/index.js",
@@ -24,7 +24,6 @@
     "type": "git",
     "url": "git+https://github.com/chunhaofen/electron-infra-kit.git"
   },
-
   "exports": {
     ".": {
       "import": "./dist/index.mjs",

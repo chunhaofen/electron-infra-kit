@@ -1,6 +1,20 @@
-# Changelog
+# 更新日志 (Changelog)
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+本项目的所有重大更改都将记录在此文件中。
+
+
+### [0.1.1](https://github.com/chunhaofen/electron-infra-kit/compare/v0.1.0...v0.1.1) (2025-12-25)
+
+
+### 📝 文档更新 (Documentation)
+
+* 更新项目文档和贡献指南
+* 更新README文件并添加架构设计图
+
+
+### ✨ 新增特性 (New Features)
+
+* **logger:** 添加共享日志实例和IPC传输功能
 
 ## [0.1.0] - 2025-12-23
 
